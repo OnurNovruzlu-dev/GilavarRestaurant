@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gilavar Restaurant</title>
+  <style>
+    :root {
+      --primary-color: #1a4d2e;
+      --secondary-color: #f4f1ee;
+      --accent-color: #c69c6d;
+      --text-color: #333;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      font-family: var(--font);
+      margin: 0;
+      padding: 0;
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    header {
+      background-color: var(--primary-color);
+      padding: 10px 20px;
+      color: white;
+      border-radius: 0 0 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .header-center {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex: 1;
+    }
+    .header-center a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .header-center a:hover {
+      background-color: var(--accent-color);
+    }
+    .lang-buttons button {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      margin-left: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .lang-buttons button:hover {
+      background-color: #a1764c;
+    }
+    section {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+    section h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+    }
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 14px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    /* Home, About, Contact sections styles with full screen backgrounds */
+    #home, #about, #contact {
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    #home {
+      background: url('images/home.jpg') no-repeat center center/cover;
+    }
+    #about {
+      background: url('images/about.jpg') no-repeat center center/cover;
+    }
+    #contact {
+      background: url('images/contact.jpg') no-repeat center center/cover;
+    }
+    #home h2 {
+      color: white;
+      font-size: 3rem;
+      border: none;
+      margin-bottom: 20px;
+    }
+    #about h2, #contact h2 {
+      font-size: 3rem;
+      border: none;
+      margin-bottom: 20px;
+    }
+    #home p, #about p, #contact p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    #contact p {
+      line-height: 2;
+      white-space: pre-line;
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .header-center {
+        flex-wrap: wrap;
+      }
+      #home h2, #about h2, #contact h2 {
+        font-size: 2.2rem;
+      }
+      #home p, #about p, #contact p {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Menu Section */
+    #menu {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      margin-bottom: 40px;
+    }
+    #menu h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 2rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .filter-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background-color: var(--accent-color);
+      color: #222;
+    }
+    #search-input {
+      display: block;
+      margin: 0 auto 20px;
+      padding: 8px 12px;
+      width: 80%;
+      max-width: 400px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    #search-input:focus {
+      border-color: var(--primary-color);
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 150px;
+      cursor: default;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+    .product-name {
+      padding: 10px;
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 1rem;
+      min-height: 48px; /* to keep consistent height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .page-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      min-width: 32px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .page-btn.active,
+    .page-btn:hover {
+      background-color: var(--accent-color);
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Gilavar</div>
+      <div class="header-center">
+        <a href="#home" id="header-home"></a>
+        <a href="#menu" id="header-menu"></a>
+        <a href="#about" id="header-about"></a>
+        <a href="#contact" id="header-contact"></a>
+      </div>
+      <div class="lang-buttons">
+        <button onclick="setLanguage('az')">AZ</button>
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('ru')">RU</button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <section id="home">
+      <h2 id="home-title"></h2>
+      <p id="home-text"></p>
+    </section>
+
+    <section id="menu">
+      <h2 id="menu-title"></h2>
+      <input type="text" id="search-input" placeholder="Search..." />
+      <div class="filters" id="category-filters"></div>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+
+    <section id="about">
+      <h2 id="about-title"></h2>
+      <p id="about-text"></p>
+    </section>
+
+    <section id="contact">
+      <h2 id="contact-title"></h2>
+      <p id="contact-text"></p>
+    </section>
+
+
+
+    <div class="container">
+      <footer>
+        © 2025 Gilavar Restaurant
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    const translations = {
+      az: {
+        home: "Ana Səhifə",
+        menu: "Menyu",
+        contact: "Əlaqə",
+        about: "Haqqımızda",
+        welcome: "Gilavar restoranına xoş gəlmisiniz!",
+        aboutText: "Gilavar restoranı dəniz məhsulları və ət yeməkləri üzrə fəaliyyət göstərir. Biz müştərilərimizə keyfiyyətli xidmət və unudulmaz dadlar təqdim edirik. Rahat atmosfer və peşəkar komanda sizi gözləyir!",
+        contactText: "✉️ fxaliq99@gmail.com\n✉️ xaliq.ferecov99@gmail.com\n📞 +994 77 187 00 64\n📞 +994 50 573 99 80\n🕐 Bazar ertəsi - Bazar: 08:00 – 02:00\n📸 Instagram: @faradjov_99\n📍 Ünvan: Bibiheybət, Namiq Quliyev, Bakı, Azərbaycan",
+        searchPlaceholder: "Axtarış...",
+      },
+      en: {
+        home: "Home",
+        menu: "Menu",
+        contact: "Contact",
+        about: "About",
+        welcome: "Welcome to Gilavar Restaurant!",
+        aboutText: "Gilavar specializes in seafood and meat dishes. We take pride in delivering top-quality service to our guests. Our cozy ambiance and professional staff are here to offer you a delightful dining experience.",
+        contactText: "✉️ fxaliq99@gmail.com\n✉️ xaliq.ferecov99@gmail.com\n📞 +994 77 187 00 64\n📞 +994 50 573 99 80\n🕐 Mon - Sun: 08:00 – 02:00\n📸 Instagram: @faradjov_99\n📍 Address: Bibiheybət, Namiq Quliyev, Baku, Azerbaijan",
+        searchPlaceholder: "Search...",
+      },
+      ru: {
+        home: "Главная",
+        menu: "Меню",
+        contact: "Контакты",
+        about: "О нас",
+        welcome: "Добро пожаловать в ресторан Gilavar!",
+        aboutText: "Gilavar специализируется на морепродуктах и мясных блюдах. Мы гордимся высоким качеством обслуживания. Уютная атмосфера и профессиональный персонал подарят вам незабываемые впечатления.",
+        contactText: "✉️ fxaliq99@gmail.com\n✉️ xaliq.ferecov99@gmail.com\n📞 +994 77 187 00 64\n📞 +994 55 50 573 99 80\n🕐 Пн - Вс: 08:00 – 02:00\n📸 Instagram: @faradjov_99\n📍 Адрес: Bibiheybət, Namiq Quliyev, Баку, Азербайджан",
+        searchPlaceholder: "Поиск...",
+      }
+    };
+
+    const categories = [
+      { id: "hot", en: "Hot Dishes", az: "İsti Yeməklər", ru: "Горячие блюда" },
+      { id: "kebabs", en: "Kebabs", az: "Kabablər", ru: "Кебабы" },
+      { id: "salads", en: "Salads", az: "Salatlar", ru: "Салаты" },
+      { id: "veg-kebabs", en: "Vegetable Kebabs", az: "Tərəvəz Kababları", ru: "Овощные кебабы" },
+      { id: "cold-snacks", en: "Cold Snacks", az: "Soyuq qəlyanaltılar", ru: "Холодные закуски" },
+      { id: "soft-drinks", en: "Cool Drinks", az: "Sərin içkilər", ru: "Прохладительные напитки" },
+      { id: "alcoholic", en: "Alcoholic Beverages", az: "Spirtli içkilər", ru: "Алкогольные напитки" },
+      { id: "tea", en: "Tea", az: "Çay", ru: "Чай" },
+      { id: "banquet", en: "Banquet Menus", az: "Banket menyuları", ru: "Банкетные меню" },
+    ];
+
+    const products = [
+      // 30 products sample data
+      // id, category, image, names
+      {
+        id: 1,
+        category: "hot",
+        img: "images/products/sacici.jfif",
+        name: { en: "Sacici", az: "Saciçi", ru: "Cацици" }
+      },
+      {
+        id: 2,
+        category: "hot",
+        img: "https://images.unsplash.com/photo-1562967916-eb82221dfb47?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Chicken Curry", az: "Toyuq Kari", ru: "Куриный карри" }
+      },
+      {
+        id: 3,
+        category: "kebabs",
+        img: "https://images.unsplash.com/photo-1562967917-cd4a0e1580f4?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Lamb Kebab", az: "Quzu Kababı", ru: "Кебаб из баранины" }
+      },
+      {
+        id: 4,
+        category: "kebabs",
+        img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Chicken Kebab", az: "Toyuq Kababı", ru: "Кебаб из курицы" }
+      },
+      {
+        id: 5,
+        category: "salads",
+        img: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Caesar Salad", az: "Sezar Salatı", ru: "Салат Цезарь" }
+      },
+      {
+        id: 6,
+        category: "salads",
+        img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Greek Salad", az: "Yunan Salatı", ru: "Греческий салат" }
+      },
+      {
+        id: 7,
+        category: "veg-kebabs",
+        img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Grilled Vegetable Kebab", az: "Qril Tərəvəz Kababı", ru: "Овощной шашлык" }
+      },
+      {
+        id: 8,
+        category: "cold-snacks",
+        img: "https://images.unsplash.com/photo-1604908177447-f47f172e8c6f?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Stuffed Grape Leaves", az: "Yarpaqlı Dolma", ru: "Долма" }
+      },
+      {
+        id: 9,
+        category: "cold-snacks",
+        img: "https://images.unsplash.com/photo-1506086679527-c95a5dcf5b1d?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Hummus", az: "Humus", ru: "Хумус" }
+      },
+      {
+        id: 10,
+        category: "soft-drinks",
+        img: "https://images.unsplash.com/photo-1590080877777-3eea08f15e31?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Lemonade", az: "Limonad", ru: "Лимонад" }
+      },
+      {
+        id: 11,
+        category: "soft-drinks",
+        img: "https://images.unsplash.com/photo-1590080878000-564db4cc5b8e?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Mineral Water", az: "Mineral Su", ru: "Минеральная вода" }
+      },
+      {
+        id: 12,
+        category: "alcoholic",
+        img: "https://images.unsplash.com/photo-1510626176961-4b7e22071f76?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Red Wine", az: "Qırmızı Şərab", ru: "Красное вино" }
+      },
+      {
+        id: 13,
+        category: "alcoholic",
+        img: "https://images.unsplash.com/photo-1532634726-8b9fb998bb68?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Whiskey", az: "Viski", ru: "Виски" }
+      },
+      {
+        id: 14,
+        category: "tea",
+        img: "https://images.unsplash.com/photo-1517686469429-68d597f8ec0b?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Black Tea", az: "Qara Çay", ru: "Чёрный чай" }
+      },
+      {
+        id: 15,
+        category: "tea",
+        img: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Green Tea", az: "Yaşıl Çay", ru: "Зелёный чай" }
+      },
+      {
+        id: 16,
+        category: "banquet",
+        img: "https://images.unsplash.com/photo-1529257414770-7b31c6e7f5f6?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Banquet Set A", az: "Banket Dəsti A", ru: "Банкетный набор А" }
+      },
+      {
+        id: 17,
+        category: "banquet",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Banquet Set B", az: "Banket Dəsti B", ru: "Банкетный набор Б" }
+      },
+      {
+        id: 18,
+        category: "hot",
+        img: "https://images.unsplash.com/photo-1600891964588-02b167f22724?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Beef Stroganoff", az: "Biqet Stroqanov", ru: "Бефстроганов" }
+      },
+      {
+        id: 19,
+        category: "kebabs",
+        img: "https://images.unsplash.com/photo-1552332386-f8dd00dc2f4b?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Chicken Shashlik", az: "Toyuq Şaşlıq", ru: "Куриный шашлык" }
+      },
+      {
+        id: 20,
+        category: "salads",
+        img: "https://images.unsplash.com/photo-1556910103-1f6a95f476a9?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Tomato Salad", az: "Pomidor Salatı", ru: "Томатный салат" }
+      },
+      {
+        id: 21,
+        category: "veg-kebabs",
+        img: "https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Mushroom Kebab", az: "Göbələk Kababı", ru: "Грибной кебаб" }
+      },
+      {
+        id: 22,
+        category: "cold-snacks",
+        img: "https://images.unsplash.com/photo-1562967914-e58f07f4a253?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Olives Plate", az: "Zeytun Plitəsi", ru: "Тарелка оливок" }
+      },
+      {
+        id: 23,
+        category: "soft-drinks",
+        img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Orange Juice", az: "Portağal Şirəsi", ru: "Апельсиновый сок" }
+      },
+      {
+        id: 24,
+        category: "alcoholic",
+        img: "https://images.unsplash.com/photo-1562003387-8c5cf5f8d6e7?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Vodka", az: "Vodka", ru: "Водка" }
+      },
+      {
+        id: 25,
+        category: "tea",
+        img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Herbal Tea", az: "Otlu Çay", ru: "Травяной чай" }
+      },
+      {
+        id: 26,
+        category: "banquet",
+        img: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Banquet Set C", az: "Banket Dəsti C", ru: "Банкетный набор В" }
+      },
+      {
+        id: 27,
+        category: "hot",
+        img: "https://images.unsplash.com/photo-1576765607928-7e9b6b4b586f?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Roast Duck", az: "Qızardılmış Ördək", ru: "Жареная утка" }
+      },
+      {
+        id: 28,
+        category: "kebabs",
+        img: "https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Beef Kebab", az: "Mal Kababı", ru: "Говяжий кебаб" }
+      },
+      {
+        id: 29,
+        category: "salads",
+        img: "https://images.unsplash.com/photo-1543352634-01ee191b63c6?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Cucumber Salad", az: "Xiyar Salatı", ru: "Огуречный салат" }
+      },
+      {
+        id: 30,
+        category: "veg-kebabs",
+        img: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=300&q=80",
+        name: { en: "Grilled Corn", az: "Qril Qarğıdalı", ru: "Кукуруза на гриле" }
+      },
+    ];
+
+    // State
+    let currentLang = 'en';
+    let currentCategory = 'all';
+    let currentPage = 1;
+    const itemsPerPage = 7;
+
+    // Elements
+    const headerHome = document.getElementById("header-home");
+    const headerMenu = document.getElementById("header-menu");
+    const headerAbout = document.getElementById("header-about");
+    const headerContact = document.getElementById("header-contact");
+    const homeTitle = document.getElementById("home-title");
+    const homeText = document.getElementById("home-text");
+    const menuTitle = document.getElementById("menu-title");
+    const aboutTitle = document.getElementById("about-title");
+    const aboutText = document.getElementById("about-text");
+    const contactTitle = document.getElementById("contact-title");
+    const contactText = document.getElementById("contact-text");
+    const searchInput = document.getElementById("search-input");
+    const categoryFilters = document.getElementById("category-filters");
+    const productGrid = document.getElementById("product-grid");
+    const pagination = document.getElementById("pagination");
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      headerHome.textContent = t.home;
+      headerMenu.textContent = t.menu;
+      headerAbout.textContent = t.about;
+      headerContact.textContent = t.contact;
+      homeTitle.textContent = t.home;
+      homeText.textContent = t.welcome;
+      menuTitle.textContent = t.menu;
+      aboutTitle.textContent = t.about;
+      aboutText.textContent = t.aboutText;
+      contactTitle.textContent = t.contact;
+      contactText.textContent = t.contactText;
+      searchInput.placeholder = t.searchPlaceholder;
+      renderCategoryFilters();
+      currentCategory = 'all';
+      currentPage = 1;
+      renderProducts();
+      renderPagination();
+    }
+
+    // Render category buttons including an "All" button
+    function renderCategoryFilters() {
+      categoryFilters.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.className = 'filter-btn' + (currentCategory === 'all' ? ' active' : '');
+      allBtn.textContent = currentLang === 'az' ? 'Hamısı' : currentLang === 'ru' ? 'Все' : 'All';
+      allBtn.onclick = () => {
+        currentCategory = 'all';
+        currentPage = 1;
+        renderCategoryFilters();
+        renderProducts();
+        renderPagination();
+      };
+      categoryFilters.appendChild(allBtn);
+
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn' + (currentCategory === cat.id ? ' active' : '');
+        btn.textContent = cat[currentLang];
+        btn.onclick = () => {
+          currentCategory = cat.id;
+          currentPage = 1;
+          renderCategoryFilters();
+          renderProducts();
+          renderPagination();
+        };
+        categoryFilters.appendChild(btn);
+      });
+    }
+
+    // Filter and paginate products based on category and search input
+    function filteredProducts() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      let filtered = products.filter(prod => {
+        const name = prod.name[currentLang].toLowerCase();
+        const matchesCategory = currentCategory === 'all' || prod.category === currentCategory;
+        const matchesSearch = name.includes(searchTerm);
+        return matchesCategory && matchesSearch;
+      });
+      return filtered;
+    }
+
+    function renderProducts() {
+      productGrid.innerHTML = '';
+      const filtered = filteredProducts();
+
+      // Pagination slice
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const pageItems = filtered.slice(start, end);
+
+      if (pageItems.length === 0) {
+        productGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color: var(--primary-color); font-weight:bold;">` +
+          (currentLang === 'az' ? 'Məhsul tapılmadı.' : currentLang === 'ru' ? 'Товары не найдены.' : 'No products found.') +
+          `</p>`;
+        return;
+      }
+
+      pageItems.forEach(prod => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${prod.img}" alt="${prod.name[currentLang]}" loading="lazy" />
+          <div class="product-name">${prod.name[currentLang]}</div>
+        `;
+        productGrid.appendChild(card);
+      });
+    }
+
+    function renderPagination() {
+      pagination.innerHTML = '';
+      const filtered = filteredProducts();
+      const totalPages = Math.ceil(filtered.length / itemsPerPage);
+      if (totalPages <= 1) return;
+
+      for(let i=1; i<=totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+        btn.textContent = i;
+        btn.onclick = () => {
+          currentPage = i;
+          renderProducts();
+          renderPagination();
+          window.scrollTo({top: document.getElementById('menu').offsetTop - 80, behavior: 'smooth'});
+        };
+        pagination.appendChild(btn);
+      }
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', () => {
+      currentPage = 1;
+      renderProducts();
+      renderPagination();
+    });
+
+    // Initial setup
+    setLanguage('en');
+  </script>
+</body>
+</html>

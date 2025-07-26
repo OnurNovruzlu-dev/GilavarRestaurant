@@ -353,252 +353,554 @@
     };
 
     const categories = [
-      { id: "hot", en: "Hot Dishes", az: "İsti Yeməklər", ru: "Горячие блюда" },
+      { id: "hot-dishes", en: "Hot dishes", az: "İsti yeməklər", ru: "Горячие блюда" },
       { id: "kebabs", en: "Kebabs", az: "Kabablər", ru: "Кебабы" },
-      { id: "salads", en: "Salads", az: "Salatlar", ru: "Салаты" },
-      { id: "veg-kebabs", en: "Vegetable Kebabs", az: "Tərəvəz Kababları", ru: "Овощные кебабы" },
-      { id: "cold-snacks", en: "Cold Snacks", az: "Soyuq qəlyanaltılar", ru: "Холодные закуски" },
-      { id: "soft-drinks", en: "Cool Drinks", az: "Sərin içkilər", ru: "Прохладительные напитки" },
-      { id: "alcoholic", en: "Alcoholic Beverages", az: "Spirtli içkilər", ru: "Алкогольные напитки" },
-      { id: "tea", en: "Tea", az: "Çay", ru: "Чай" },
-      { id: "banquet", en: "Banquet Menus", az: "Banket menyuları", ru: "Банкетные меню" },
+      { id: "cold-appetizers", en: "Cold appetizers", az: "Soyuq qəlyanaltılar", ru: "Холодные закуски" },
+      { id: "fish", en: "Fish", az: "Balıq", ru: "Рыба" },
+      { id: "breakfast", en: "Breakfast", az: "Səhər yeməyi", ru: "Завтрак" },
+      { id: "tea-table", en: "Tea table", az: "Çay dəstgahı", ru: "Чайный столик" },
+      { id: "alcoholic", en: "Alcoholic beverages", az: "Spirtli içkilər", ru: "Алкогольные напитки" },
+      { id: "cool-drinks", en: "Cool drinks", az: "Sərin içkilər", ru: "Прохладительные напитки" },
+      { id: "banquet", en: "Banquet menus", az: "Banket menyuları", ru: "Банкетные меню" },
     ];
 
     const products = [
-      // 30 products sample data
-      // id, category, image, names
       {
         id: 1,
-        category: "hot",
-        img: "images/products/sacici.webp",
-        name: { en: "Sacici", az: "Saciçi", ru: "Cацици" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/chicken-sizzler.webp",
+        name: { en: "Chicken Sizzler (on iron plate)", az: "Toyuq sacı", ru: "Садж из курицы" }
       },
       {
         id: 2,
-        category: "hot",
-        img: "images/products/soyutma.webp",
-        name: { en: "Soyutma (Lamb, beef)", az: "Soyutma (Quzu, mal əti)", ru: "Bареные (баранина, говядина)" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/lamb-sizzler.webp",
+        name: { en: "Lamb Sizzler (on iron plate)", az: "Quzu sacı", ru: "Садж из баранины" }
       },
       {
         id: 3,
-        category: "hot",
-        img: "images/products/plov.webp",
-        name: { en: "Pilaf", az: "Aş", ru: "плов" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/beef-sizzler.webp",
+        name: { en: "Beef Sizzler (on iron plate)", az: "Dana sacı", ru: "Садж из телятины" }
       },
       {
         id: 4,
-        category: "kebabs",
-        img: "images/products/tendir_kababı.webp",
-        name: { en: "Tandoori Kebab", az: "Təndir Kababı", ru: "Tандури шашлык" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/offal-sizzler.webp",
+        name: { en: "Offal Sizzler", az: "İçalat sacı", ru: "Печень на садже" }
       },
       {
         id: 5,
-        category: "kebabs",
-        img: "images/products/lule.webp",
-        name: { en: "Lulya kebab", az: "Lülə kabab", ru: "Люля кебаб" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/fried-chicken.webp",
+        name: { en: "Fried chicken", az: "Toyuq qovurma", ru: "Жареный цыпленок" }
       },
       {
         id: 6,
-        category: "kebabs",
-        img: "images/products/tike.webp",
-        name: { en: "Steak kebab", az: "Tikə kabab", ru: "Cтейк шашлык" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/fried-lamb.webp",
+        name: { en: "Fried lamb", az: "Quzu qovurma", ru: "Жареный ягненок" }
       },
       {
         id: 7,
-        category: "kebabs",
-        img: "images/products/toyuq.webp",
-        name: { en: "Chicken kebab", az: "Toyuq kababı", ru: "Куриный шашлык" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/stewed-lamb.webp",
+        name: { en: "Stewed lamb", az: "Quzu buğlama", ru: "Тушеная баранина" }
       },
       {
         id: 8,
-        category: "kebabs",
-        img: "images/products/ichalat.webp",
-        name: { en: "Liver grill", az: "İçalat kababı", ru: "Шашлык из печени" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/stewed-beef.webp",
+        name: { en: "Stewed beef", az: "Dana buğlama", ru: "Тушеная говядина" }
       },
       {
         id: 9,
-        category: "kebabs",
-        img: "images/products/dana_basdırma.webp",
-        name: { en: "Beef basdyrma", az: "Dana basdırması", ru: "Дана бастурма" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/pattie-with-mashed-potatoes.webp",
+        name: { en: "Pattie with mashed potatoes", az: "Kotlet kartof", ru: "Котлета и картофель" }
       },
       {
         id: 10,
-        category: "kebabs",
-        img: "images/products/balıq.webp",
-        name: { en: "Fish grill", az: "Balıq kababı", ru: "Рыбный шашлык" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/chicken-with-potatoes.webp",
+        name: { en: "Chicken with Potatoes", az: "Toyuq kartof", ru: "Курица с картофелем" }
       },
       {
         id: 11,
-        category: "salads",
-        img: "images/products/pomidor_xiyar.webp",
-        name: { en: "Tomato and cucumber salad", az: "Pomidor, xiyar salatı", ru: "Салат из помидоров и огурцов" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/pan-fried-whole-chicken.webp",
+        name: { en: "Pan-fried whole chicken", az: "Tabaka", ru: "Жареный на сковороде целая курица" }
       },
       {
         id: 12,
-        category: "salads",
-        img: "images/products/choban.webp",
-        name: { en: "Shepherd's salad", az: "Çoban salatı", ru: "Пастуший салат" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/dolma-with-vine-leaves.webp",
+        name: { en: "Dolma (with Vine Leaves)", az: "Dolma (Yarpaq)", ru: "Долма (с виноградными листьями)" }
       },
       {
         id: 13,
-        category: "salads",
-        img: "images/products/goyerti.webp",
-        name: { en: "Greens", az: "Göyərti", ru: "Зелень" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/meatball-with-chickpeas.webp",
+        name: { en: "Meatball with chickpeas", az: "Küftə bozbaş", ru: "Фрикадельки с нутом" }
       },
       {
         id: 14,
-        category: "salads",
-        img: "images/products/pendir_assorti.webp",
-        name: { en: "Assorted cheese", az: "Pendir assorti", ru: "Ассорти из сыров" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/veal-in-sour-sauce.webp",
+        name: { en: "Veal in Sour Sauce", az: "Turşulu can əti", ru: "Телятина в кислом соусе" }
       },
       {
         id: 15,
-        category: "salads",
-        img: "images/products/tursu_assorti.webp",
-        name: { en: "Assorted pickles", az: "Turşu assorti", ru: "Ассорти из солений" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/lamb-in-sour-sauce.webp",
+        name: { en: "Lamb in sour sauce", az: "Turşulu quzu əti", ru: "Баранина в кислом соусе" }
       },
       {
         id: 16,
-        category: "salads",
-        img: "images/products/zeytun.webp",
-        name: { en: "Olive", az: "Zeytun", ru: "Оливковый" }
+        category: "hot-dishes",
+        img: "images/products/hot-dishes/fried-liver-and-intestines.webp",
+        name: { en: "Fried liver & intestines", az: "Cız-bız", ru: "Жареные печень и кишки" }
       },
       {
         id: 17,
-        category: "salads",
-        img: "images/products/suzme.webp",
-        name: { en: "Suzma", az: "Süzmə", ru: "Сузма" }
+        category: "kebabs",
+        img: "images/products/kebabs/khan-kebab.webp",
+        name: { en: "Khan kebab", az: "Xan kababı", ru: "Хан кебаб" }
       },
       {
         id: 18,
-        category: "salads",
-        img: "images/products/acika.webp",
-        name: { en: "Adjika", az: "Acika", ru: "Аджика" }
+        category: "kebabs",
+        img: "images/products/kebabs/lamb-kebab.webp",
+        name: { en: "Lamb kebab", az: "Quzu kababı", ru: "Кебаб из баранины" }
       },
       {
         id: 19,
-        category: "salads",
-        img: "images/products/limon.webp",
-        name: { en: "Lemon", az: "Limon", ru: "Лимон" }
+        category: "kebabs",
+        img: "images/products/kebabs/lamb-chops.webp",
+        name: { en: "Lamb chops", az: "Antrikot", ru: "Бараньи отбивные" }
       },
       {
         id: 20,
-        category: "veg-kebabs",
-        img: "images/products/pomidor_kababı.webp",
-        name: { en: "Tomato kebab", az: "Pomidor kababı", ru: "Томатный шашлык" }
+        category: "kebabs",
+        img: "images/products/kebabs/lamb-lyulya-kebab.webp",
+        name: { en: "Lamb lyulya kebab (minced)", az: "Quzu lülə", ru: "Люля-кебаб из баранины (фарш)" }
       },
       {
         id: 21,
-        category: "veg-kebabs",
-        img: "images/products/badımcan_kababı.webp",
-        name: { en: "Eggplant Kebab", az: "Badımcan kababı", ru: "Баклажан шашлык" }
+        category: "kebabs",
+        img: "images/products/kebabs/stuffed-lamb-with-walnut-paste.webp",
+        name: { en: "Stuffed lamb with walnut paste", az: "Quzu ləvəngi", ru: "Фаршированная баранина с ореховой пастой" }
       },
       {
         id: 22,
-        category: "veg-kebabs",
-        img: "images/products/biber_kababı.webp",
-        name: { en: "Pepper Kebab", az: "Bibər kababı", ru: "Перец шашлык" }
+        category: "kebabs",
+        img: "images/products/kebabs/chicken-lyulya-kebab.webp",
+        name: { en: "Chicken lyulya kebab", az: "Toyuq lülə", ru: "Люля-кебаб из курицы" }
       },
       {
         id: 23,
-        category: "veg-kebabs",
-        img: "images/products/kartof_kababı.webp",
-        name: { en: "Potato Kebab", az: "Kartof kababı", ru: "Картофель шашлык" }
+        category: "kebabs",
+        img: "images/products/kebabs/chicken-kebab.webp",
+        name: { en: "Chicken kebab", az: "Toyuq kababı", ru: "Куриный кебаб" }
       },
       {
         id: 24,
-        category: "cold-snacks",
-        img: "images/products/manqal_salatı.webp",
-        name: { en: "Mangal salad", az: "Manqal salatı", ru: "Салат мангал" }
+        category: "kebabs",
+        img: "images/products/kebabs/beef-pastirma.webp",
+        name: { en: "Beef pastirma", az: "Dana basdırma", ru: "Говяжья бастурма" }
       },
       {
         id: 25,
-        category: "cold-snacks",
-        img: "images/products/paytaxt_salatı.webp",
-        name: { en: "Paytakht salad", az: "Paytaxt salatı", ru: "Салат пайтахт" }
+        category: "kebabs",
+        img: "images/products/kebabs/blood-offal-kebab.webp",
+        name: { en: "Blood offal kebab", az: "Qan içalat kababı", ru: "Кебаб из кровяных " }
       },
       {
         id: 26,
-        category: "cold-snacks",
-        img: "images/products/tabaka.webp",
-        name: { en: "Chicken tabaka", az: "Tabaka (toyuq)", ru: "Цыпленок табака" }
+        category: "kebabs",
+        img: "images/products/kebabs/mixed-offal-kebab.webp",
+        name: { en: "Mixed offal kebab", az: "İçalat kababı", ru: "Кебаб из смешанных субпродуктов" }
       },
       {
         id: 27,
-        category: "cold-snacks",
-        img: "images/products/kolbasa.webp",
-        name: { en: "Sausage", az: "Kolbasa", ru: "Колбаса" }
+        category: "kebabs",
+        img: "images/products/kebabs/liver-kebab-with-tail-fat.webp",
+        name: { en: "Liver kebab with tail fat", az: "Ciyər quyruq kababı", ru: "Кебаб из печени с курдючным жиром" }
       },
       {
         id: 28,
-        category: "soft-drinks",
-        img: "images/products/kola.webp",
-        name: { en: "Cola", az: "Kola", ru: "Кола" }
+        category: "kebabs",
+        img: "images/products/kebabs/grilled-tomato-kebab.webp",
+        name: { en: "Grilled Tomato Kebab", az: "Pomidor kababı", ru: "Кебаб из жареных помидоров" }
       },
       {
         id: 29,
-        category: "soft-drinks",
-        img: "images/products/fanta.webp",
-        name: { en: "Fanta", az: "Fanta", ru: "Фанта" }
+        category: "kebabs",
+        img: "images/products/kebabs/grilled-eggplant-with-tail-fat.webp",
+        name: { en: "Grilled eggplant with tail fat", az: "Badımcan quyruq kababı", ru: "Баклажаны на гриле с курдючным жиром" }
       },
       {
         id: 30,
-        category: "soft-drinks",
-        img: "images/products/dushes.webp",
-        name: { en: "Pear duchess drink", az: "Düşes", ru: "Дюшес" }
+        category: "kebabs",
+        img: "images/products/kebabs/french-fries.webp",
+        name: { en: "French Fries", az: "Kartof çipsi", ru: "Картофель фри" }
       },
       {
         id: 31,
-        category: "soft-drinks",
-        img: "images/products/naturalni.webp",
-        name: { en: "Natural juice", az: "Təbii meyvə şirəsi", ru: "Натуральный сок" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/cheese-platter.webp",
+        name: { en: "Cheese platter", az: "Pendir assorti", ru: "Сырная тарелка" }
       },
       {
         id: 32,
-        category: "soft-drinks",
-        img: "images/products/qazlı.webp",
-        name: { en: "Sparkling water", az: "Qazlı su", ru: "Газированная вода" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/strained-yogurt.webp",
+        name: { en: "Strained yogurt", az: "Süzmə", ru: "Процеженный йогурт" }
       },
       {
         id: 33,
-        category: "soft-drinks",
-        img: "images/products/qazsız.webp",
-        name: { en: "Still water", az: "Qazsız su", ru: "Стоячая вода" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/fresh-herbs.webp",
+        name: { en: "Fresh herbs", az: "Göyərti", ru: "Свежие травы" }
       },
       {
         id: 34,
-        category: "alcoholic",
-        img: "images/products/araq.webp",
-        name: { en: "Vodka (local and russian)", az: "Araq (yerli və rus)", ru: "Водка (местная и русская)" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/pickle-platter.webp",
+        name: { en: "Pickle platter", az: "Turşu assorti", ru: "Ассорти из солений" }
       },
       {
         id: 35,
-        category: "alcoholic",
-        img: "images/products/çaxır.webp",
-        name: { en: "Wine", az: "Çaxır", ru: "Вино" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/spicy-vegetable-paste.webp",
+        name: { en: "Spicy vegetable paste", az: "Acika", ru: "Острая овощная паста" }
       },
       {
         id: 36,
-        category: "tea",
-        img: "images/products/chay.webp",
-        name: { en: "Tea", az: "Çay", ru: "Чай" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/grilled-vegetable-salad.webp",
+        name: { en: "Grilled vegetable salad", az: "Manqal salatı", ru: "Салат из жареных " }
       },
       {
         id: 37,
-        category: "tea",
-        img: "images/products/tort.webp",
-        name: { en: "Cake", az: "Tort", ru: "Торт" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/pickled-onions.webp",
+        name: { en: "Pickled onions", az: "Soğan turşusu", ru: "Маринованный лук" }
       },
       {
         id: 38,
-        category: "tea",
-        img: "images/products/lepe.webp",
-        name: { en: "Mixed nuts", az: "Ləpə", ru: "Смесь орехов" }
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/olives.webp",
+        name: { en: "Olives", az: "Zeytun", ru: "Оливки" }
       },
       {
         id: 39,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/lemon.webp",
+        name: { en: "Lemon", az: "Limon", ru: "Лимон" }
+      },
+      {
+        id: 40,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/tomato-and-cucumber.webp",
+        name: { en: "Tomato & cucumber", az: "Pomidor və xiyar", ru: "Помидоры и огурцы" }
+      },
+      {
+        id: 41,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/shepherds-salad.webp",
+        name: { en: "Shepherd’s salad", az: "Çoban salatı", ru: "Пастуший салат" }
+      },
+      {
+        id: 42,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/yogurt-in-clay-pot.webp",
+        name: { en: "Yogurt in clay pot", az: "Saxsıda qatıq", ru: "Йогурт в глиняном горшочке" }
+      },
+      {
+        id: 43,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/paytakht-salad.webp",
+        name: { en: "Paytakht salad", az: "Paytaxt salatı", ru: "Салат Пайтахт" }
+      },
+      {
+        id: 44,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/mimosa-salad.webp",
+        name: { en: "Mimosa salad", az: "Mimoza salatı", ru: "Салат «Мимоза»" }
+      },
+      {
+        id: 45,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/fruit-platter.webp",
+        name: { en: "Fruit platter", az: "Meyvə assorti", ru: "Фруктовая тарелка" }
+      },
+      {
+        id: 46,
+        category: "cold-appetizers",
+        img: "images/products/cold-appetizers/pickled-green-plums.webp",
+        name: { en: "Pickled green plums", az: "Alça turşusu", ru: "Маринованные зеленые сливы" }
+      },
+      {
+        id: 47,
+        category: "fish",
+        img: "images/products/fish/trout.webp",
+        name: { en: "Trout", az: "Farel", ru: "Форель" }
+      },
+      {
+        id: 48,
+        category: "fish",
+        img: "images/products/fish/belamur.webp",
+        name: { en: "Belamur", az: "Belamur", ru: "Беламур" }
+      },
+      {
+        id: 49,
+        category: "fish",
+        img: "images/products/fish/kutum.webp",
+        name: { en: "Kutum", az: "Kütüm", ru: "Кутум" }
+      },
+      {
+        id: 50,
+        category: "fish",
+        img: "images/products/fish/mullet.webp",
+        name: { en: "Mullet", az: "Kefal", ru: "Кефаль" }
+      },
+      {
+        id: 51,
+        category: "fish",
+        img: "images/products/fish/carp.webp",
+        name: { en: "Carp", az: "Sazan", ru: "Карп" }
+      },
+      {
+        id: 52,
+        category: "fish",
+        img: "images/products/fish/caspian-roach.webp",
+        name: { en: "Caspian roach", az: "Bobla", ru: "Каспийская вобла" }
+      },
+      {
+        id: 53,
+        category: "breakfast",
+        img: "images/products/breakfast/sausage-with-eggs.webp",
+        name: { en: "Sausage with eggs", az: "Sosiska-yumurta", ru: "Колбаса с яйцами" }
+      },
+      {
+        id: 54,
+        category: "breakfast",
+        img: "images/products/breakfast/boiled-sausage.webp",
+        name: { en: "Boiled sausage", az: "Sosiska soyutma", ru: "Вареная колбаса" }
+      },
+      {
+        id: 55,
+        category: "breakfast",
+        img: "images/products/breakfast/butter-and-cheese.webp",
+        name: { en: "Butter & cheese", az: "Yağ, pendir", ru: "Масло и сыр" }
+      },
+      {
+        id: 56,
+        category: "breakfast",
+        img: "images/products/breakfast/honey-and-cream.webp",
+        name: { en: "Honey and cream", az: "Bal qaymaq", ru: "Мед и сливки" }
+      },
+      {
+        id: 57,
+        category: "breakfast",
+        img: "images/products/breakfast/scrambled-eggs-with-tomato.webp",
+        name: { en: "Scrambled eggs with tomato", az: "Pomidor-yumurta", ru: "Яичница с помидорами" }
+      },
+      {
+        id: 58,
+        category: "breakfast",
+        img: "images/products/breakfast/glazok.webp",
+        name: { en: "Glazok (egg)", az: "Qlzaok", ru: "Глазок" }
+      },
+      {
+        id: 59,
+        category: "breakfast",
+        img: "images/products/breakfast/omelette.webp",
+        name: { en: "Omelette", az: "Qayğanaq", ru: "Омлет" }
+      },
+      {
+        id: 60,
+        category: "breakfast",
+        img: "images/products/breakfast/boiled-eggs.webp",
+        name: { en: "Boiled eggs", az: "Soyutma yumurta", ru: "Вареные яйца" }
+      },
+      {
+        id: 61,
+        category: "tea-table",
+        img: "images/products/tea-table/tea.webp",
+        name: { en: "Tea", az: "Çay", ru: "Чай" }
+      },
+      {
+        id: 62,
+        category: "tea-table",
+        img: "images/products/tea-table/alpengold.webp",
+        name: { en: "Alpengold", az: "Alpenqold", ru: "Альпенгольд" }
+      },
+      {
+        id: 63,
+        category: "tea-table",
+        img: "images/products/tea-table/rollet.webp",
+        name: { en: "Rollet", az: "Rulet", ru: "Роллет" }
+      },
+      {
+        id: 64,
+        category: "tea-table",
+        img: "images/products/tea-table/snickers.webp",
+        name: { en: "Snickers", az: "Snikers", ru: "Сникерс" }
+      },
+      {
+        id: 65,
+        category: "tea-table",
+        img: "images/products/tea-table/mixed-nuts.webp",
+        name: { 
+          en: "Nuts (walnuts, hazelnuts, almonds, pistachios, raisins, dried apricots)", 
+          az: "Ləb-ləbi (qoz, fındıq, badam, fıstıq, kişmiş ərik qurusu)", 
+          ru: "Орехи (грецкие, фундук, миндаль, фисташки, изюм, курага)" 
+        }
+      },
+      {
+        id: 66,
+        category: "tea-table",
+        img: "images/products/tea-table/jam.webp",
+        name: { 
+          en: "Jam (cherry, strawberry, sour cherry, apricot, cranberry, blackberry)", 
+          az: "Mürəbbə( gilas, çiyələk, vişnə, ərik, zoğal, böyürtkən)", 
+          ru: "Варенье (вишневое, клубничное, вишневое, абрикосовое, клюквенное, ежевичное)" 
+        }
+      },
+      {
+        id: 67,
+        category: "alcoholic",
+        img: "images/products/alcoholic/wine.webp",
+        name: { 
+          en: "Wine (white, red, semi-sweet, semi-sour)", 
+          az: "Şərab (ağ, qırmızı, yarı şirin, yarı turş)", 
+          ru: "Вино (белое, красное, полусладкое, полукислое)" 
+        }
+      },
+      {
+        id: 68,
+        category: "alcoholic",
+        img: "images/products/alcoholic/cognac.webp",
+        name: { en: "Cognac", az: "Konyak", ru: "Коньяк" }
+      },
+      {
+        id: 69,
+        category: "alcoholic",
+        img: "images/products/alcoholic/whiskey.webp",
+        name: { 
+          en: "Whiskey (Jack Daniels, Chivas, Black Jack)", 
+          az: "Viski (Jack Daniels, Chivas, Black Jack)", 
+          ru: "Виски (Jack Daniels, Chivas, Black Jack)" 
+        }
+      },
+      {
+        id: 70,
+        category: "alcoholic",
+        img: "images/products/alcoholic/vodka.webp",
+        name: { en: "Vodka", az: "Araq", ru: "Водка" }
+      },
+      {
+        id: 71,
+        category: "alcoholic",
+        img: "images/products/alcoholic/beer.webp",
+        name: { en: "Beer", az: "Pivə (Salyan, Nzs)", ru: "Пиво" }
+      },
+      {
+        id: 72,
+        category: "alcoholic",
+        img: "images/products/alcoholic/jagermeister.webp",
+        name: { en: "Jagermeister", az: "Jagermeister", ru: "Егермейстер" }
+      },
+      {
+        id: 73,
+        category: "alcoholic",
+        img: "images/products/alcoholic/tequila.webp",
+        name: { en: "Tequila", az: "Tekila", ru: "Текила" }
+      },
+      {
+        id: 74,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/water.webp",
+        name: { en: "Water (carbonated, still)", az: "Su (qazlı, qazsız)", ru: "Вода" }
+      },
+      {
+        id: 75,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/sirab.webp",
+        name: { en: "Sirab", az: "Sirab", ru: "Сираб" }
+      },
+      {
+        id: 76,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/istisu.webp",
+        name: { en: "Istisu", az: "İstisu", ru: "Истису" }
+      },
+      {
+        id: 77,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/compote.webp",
+        name: { en: "Compote (fruit)", az: "Kompot (meyvə)", ru: "Компот (фруктовый)" }
+      },
+      {
+        id: 78,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/basil-compote.webp",
+        name: { en: "Basil compote", az: "Reyhan kompotu", ru: "Базиликовый компот" }
+      },
+      {
+        id: 79,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/cola.webp",
+        name: { en: "Cola", az: "Kola", ru: "Кола" }
+      },
+      {
+        id: 80,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/fanta.webp",
+        name: { en: "Fanta", az: "Fanta", ru: "Фанта" }
+      },
+      {
+        id: 81,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/sprite.webp",
+        name: { en: "Sprite", az: "Sprayt", ru: "Спрайт" }
+      },
+      {
+        id: 82,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/duchess.webp",
+        name: { en: "Duchess", az: "Düşes", ru: "Дюшес" }
+      },
+      {
+        id: 83,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/tarragon.webp",
+        name: { en: "Tarragon", az: "Tərxun", ru: "Тархун" }
+      },
+      {
+        id: 84,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/natural-juice.webp",
+        name: { en: "Natural juice", az: "Naturalni sok", ru: "Натуральный сок" }
+      },
+      {
+        id: 85,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/ayran.webp",
+        name: { en: "Ayran (yoghurt drink)", az: "Ayran", ru: "Айран" }
+      },
+      {
+        id: 86,
+        category: "cool-drinks",
+        img: "images/products/cool-drinks/okroshka.webp",
+        name: { en: "Okroshka", az: "Akroşka", ru: "Акрошка" }
+      },
+      {
+        id: 87,
         category: "banquet",
-        img: "images/products/banket-1.webp",
+        img: "images/products/banquet/banquet-for-25-45-people.webp",
         name: { en: "Banquet for 25-45 people", az: "Banket 25-45 nəfərlik", ru: "Банкет на 25-45 человек" }
       }
     ];
@@ -607,7 +909,7 @@
     let currentLang = 'en';
     let currentCategory = 'all';
     let currentPage = 1;
-    const itemsPerPage = 7;
+    const itemsPerPage = 6;
 
     // Elements
     const headerHome = document.getElementById("header-home");
